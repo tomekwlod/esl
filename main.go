@@ -8,7 +8,10 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
+	"time"
 )
+
+// @todo: ensueIndex needed!!
 
 type Env struct {
 	*Client
@@ -21,8 +24,11 @@ func (e *Env) SendLog(log *Log) (jr *JSONResp, err error) {
 		return nil, errors.New("Cannot send a log without a proper configuration")
 	}
 
+	created := time.Now()
+
 	// override the log.Poject
 	log.Project = e.Project
+	log.Created = created.Format("2006-01-02 15:04:05")
 
 	logBytes, err := json.Marshal(log)
 	if err != nil {

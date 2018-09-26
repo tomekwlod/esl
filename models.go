@@ -6,6 +6,7 @@ type Log struct {
 	Command string      `json:"command"`
 	Flag    string      `json:"flag"`
 	Data    interface{} `json:"data"`
+	Created string      `json:"created"`
 }
 
 type Client struct {
