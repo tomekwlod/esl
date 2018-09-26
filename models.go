@@ -1,7 +1,7 @@
 package esl
 
 type Log struct {
-	project string
+	Project string      `json:"project"`
 	Domain  string      `json:"domain"`
 	Command string      `json:"command"`
 	Flag    string      `json:"flag"`

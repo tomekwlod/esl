@@ -21,7 +21,8 @@ func (e *Env) SendLog(log *Log) (jr *JSONResp, err error) {
 		return nil, errors.New("Cannot send a log without a proper configuration")
 	}
 
-	log.project = e.Project
+	// override the log.Poject
+	log.Project = e.Project
 
 	logBytes, err := json.Marshal(log)
 	if err != nil {
