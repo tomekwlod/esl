@@ -28,7 +28,8 @@ func (e *Env) SendLog(log *Log) (jr *JSONResp, err error) {
 
 	// override the log.Poject
 	log.Project = e.Project
-	log.Created = created.Format("2006-01-02 15:04:05")
+// 	log.Created = created.Format("2006-01-02 15:04:05")
+	log.Created = created.Format(time.RFC3339)
 
 	logBytes, err := json.Marshal(log)
 	if err != nil {
